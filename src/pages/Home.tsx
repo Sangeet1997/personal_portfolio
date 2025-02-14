@@ -15,23 +15,33 @@ const skills = [
 ];
 
 const education = [
+  
+  {
+    school: "Northeastern University",
+    degree: "Master of Science in Software Engineering",
+    year: "2023 - Present",
+    gpa: "3.8 / 4.0",
+    coursework: ["Program Structure and Algorithms", "Cloud Computing", "Prompt Engineering and AI", "Agile Software Development"],
+    description: "Pursued out of a deep interest in algorithms and their optimization. Found cloud computing challenging"+
+                  " but was satisfied with the outcome of the final project. Exploring AI and prompt engineering broadened"+
+                  " my interests and helped me secure a co-op and an on-campus research assistant position.",
+    specialWork: "Research Assistant (RA) for Organizing Academic Success: AI for Personalized Learning, developed a"+
+                  " dynamic AI curriculum, utilizing data-driven insights to enhance engagement and optimize"+
+                  " learning outcomes. Created tailored educational content and produced instructional YouTube"+
+                  " videos and GitHub guides for hands-on AI learning."
+  },
   {
     school: "Vellore Institute of Technology",
     degree: "Bachelor of Technology in Mechanical Engineering",
     year: "2017 - 2021",
-    gpa: "3.8 / 4.0",
-    coursework: ["Data Structures", "Algorithms", "Database Management", "Operating Systems", "Web Technologies"],
-    description: "Specialized in Software Engineering with a focus on Web Technologies",
-    specialWork: "Developed a machine learning model for predictive maintenance in manufacturing."
-  },
-  {
-    school: "Northeastern University",
-    degree: "Master of Science in Computer Science",
-    year: "2023 - Present",
-    gpa: "3.9 / 4.0",
-    coursework: ["Advanced Algorithms", "Cloud Computing", "AI & Machine Learning", "Full Stack Development"],
-    description: "Intensive program covering modern web development stack",
-    specialWork: "Created an AI-powered chatbot for student academic guidance."
+    gpa: "8.1 / 10",
+    coursework: ["Mechanics of Machines", "Fluid Dynamics", "DBMS", "C++ programming", "Data Structures and Algorithms"],
+    description: "Pursued due to a strong passion for physics and mathematics. Enjoyed designing models and"+
+                  " conducting simulations using SolidWorks and Ansys. Additionally, explored core computer"+
+                  " science topics with a focused interest.",
+    specialWork: "Developed a condition monitoring system for Friction Stir Welding by preprocessing raw vibration"+
+                  " data and classifying weld quality using the Best First Tree (BFT) algorithm, achieving an"+
+                  " 82.42% classification accuracy."
   }
 ];
 
@@ -121,14 +131,14 @@ export default function Home() {
                     className="overflow-hidden mt-4"
                   >
                     <p className="font-medium">GPA: {edu.gpa}</p>
-                    <p className="font-medium">Relevant Coursework:</p>
+                    <p className="font-medium">Favorite Coursework:</p>
                     <ul className="list-disc ml-5 text-muted-foreground">
                       {edu.coursework.map((course) => (
                         <li key={course}>{course}</li>
                       ))}
                     </ul>
                     {edu.specialWork && (
-                      <p className="mt-2 text-muted-foreground">Special Work: {edu.specialWork}</p>
+                      <p className="mt-2 text-muted-foreground"><p className="text-white font-bold">Notable Work:</p> {edu.specialWork}</p>
                     )}
                   </motion.div>
                 </Card>

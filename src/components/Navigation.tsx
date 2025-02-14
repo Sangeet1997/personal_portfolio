@@ -12,7 +12,7 @@ export default function Navigation() {
   const links = [
     { href: "/personal_portfolio", label: "Home" },
     { href: "/personal_portfolio/projects", label: "Projects" },
-    { href: "/personal_portfolio/timeline", label: "Timeline" },
+    // { href: "/personal_portfolio/timeline", label: "Timeline" },
     { href: "/personal_portfolio/experience", label: "Experience" },
     { href: "/personal_portfolio/contact", label: "Contact" },
     { href: "/personal_portfolio/hobbies", label: "Hobbies" },

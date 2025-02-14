@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { Github, ExternalLink } from "lucide-react";
 
 export default function ProjectDetail() {
-  const [, params] = useRoute("/projects/:id");
+  const [, params] = useRoute("/personal_portfolio/projects/:id");
   const project = projects.find((p) => p.id === Number(params?.id));
 
   if (!project) {
