@@ -7,12 +7,12 @@ export default function Navigation() {
   const [location] = useLocation();
 
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/projects", label: "Projects" },
-    { href: "/timeline", label: "Timeline" },
-    { href: "/experience", label: "Experience" },
-    { href: "/contact", label: "Contact" },
-    { href: "/hobbies", label: "Hobbies" },
+    { href: "/personal_portfolio", label: "Home" },
+    { href: "/personal_portfolio/projects", label: "Projects" },
+    { href: "/personal_portfolio/timeline", label: "Timeline" },
+    { href: "/personal_portfolio/experience", label: "Experience" },
+    { href: "/personal_portfolio/contact", label: "Contact" },
+    { href: "/personal_portfolio/hobbies", label: "Hobbies" },
   ];
 
   return (
