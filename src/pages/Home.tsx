@@ -87,8 +87,7 @@ export default function Home() {
               ref={textRef}
               className="text-xl text-muted-foreground"
             >
-              I build exceptional digital experiences that combine beautiful design
-              with smooth functionality. Let's create something amazing together.
+              I craft intelligent and scalable software solutions, blending cutting-edge AI with robust engineering. Let’s build the future, one innovation at a time.
             </p>
           </div>
         </div>

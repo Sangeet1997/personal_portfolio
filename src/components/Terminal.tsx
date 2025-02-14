@@ -40,9 +40,9 @@ export default function Terminal() {
     }
   };
 
-  useEffect(() => {
-    terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [history]);
+  // useEffect(() => {
+  //   terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  // }, [history]);
 
   return (
     <motion.div
