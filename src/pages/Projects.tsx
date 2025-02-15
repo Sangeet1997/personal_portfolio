@@ -4,28 +4,28 @@ import ProjectCard from "@/components/ProjectCard";
 
 export const projects = [
   {
-    id: 1,
-    title: "Project 1",
-    description: "A modern web application built with React and TypeScript",
-    image: "https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8",
-    tags: ["React", "TypeScript", "Tailwind"],
-    longDescription: "A comprehensive web application that showcases modern React patterns and TypeScript best practices. Features include real-time data updates, responsive design, and seamless user interactions.",
-    challenges: "Implementing real-time features while maintaining optimal performance",
-    solutions: "Utilized WebSocket connections and efficient state management",
-    link: "https://project1.example.com",
-    github: "https://github.com/yourusername/project1"
+    "id": 1,
+    "title": "REST API Development and GCP Infrastructure Setup",
+    "description": "Developed and deployed a scalable Node.js REST API with authentication, CI/CD, and GCP infrastructure.",
+    "image": "https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8",
+    "tags": ["Node.js", "REST API", "Sequelize", "MySQL", "GCP", "Terraform", "CI/CD"],
+    "longDescription": "Designed and implemented a REST API using Node.js and Sequelize ORM with MySQL for database management. The API included user authentication, health check endpoints, and robust security measures. The infrastructure was first built on a local MySQL database and later migrated to GCP CloudSQL with automatic load balancing across multiple geographical locations to handle service outages. CI/CD was automated using GitHub Actions, incorporating Jest for integration testing and Terraform scripts for environment provisioning. Security was enhanced using encryption key rings, and logging was implemented with Winston to GCP Log Explorer. Additionally, email and notification services were integrated for improved user communication.",
+    "challenges": "Ensuring high availability and fault tolerance across different geographical locations while maintaining seamless CI/CD integration.",
+    "solutions": "Implemented automatic load balancing, Terraform for infrastructure automation, and GitHub Actions for continuous deployment. Used encryption key rings for security and Winston for centralized logging.",
+    "link": "https://your-deployed-api.example.com",
+    "github": "https://github.com/yourusername/rest-api-gcp"  
   },
   {
-    id: 2,
-    title: "Project 2",
-    description: "An e-commerce platform with advanced features",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
-    tags: ["Next.js", "Node.js", "PostgreSQL"],
-    longDescription: "A full-featured e-commerce platform built with Next.js and Node.js. Includes product management, cart functionality, and secure payment processing.",
-    challenges: "Handling complex state management and ensuring secure transactions",
-    solutions: "Implemented Redux for state management and integrated Stripe for payments",
-    link: "https://project2.example.com",
-    github: "https://github.com/yourusername/project2"
+    "id": 2,
+    "title": "FairTrader AI",
+    "description": "An AI-powered car marketplace with a conversational assistant.",
+    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
+    "tags": ["React.js", "Node.js", "MongoDB", "LLM", "LangChain"],
+    "longDescription": "FairTrader AI is an intelligent chatbot system designed for a marketplace where users can buy and sell cars while interacting with a conversational assistant named Dave. Dave assists users with navigation, predicts car prices, negotiates deals, and provides context-aware conversations based on user purchase history. The system leverages Llama 3.2 via Ollama and LangChain, along with a vector database for embedding storage and retrieval-augmented generation (RAG).",
+    "challenges": "High RAG latency, dataset inconsistencies, and multi-server integration.",
+    "solutions": "Optimized embedding storage and retrieval, created a Python standardization script, and established robust API endpoints.",
+    "link": "https://youtu.be/LPZE1T6YCU8",
+    "github": "https://github.com/yourusername/fairtrader-ai"
   },
   {
     id: 3,
