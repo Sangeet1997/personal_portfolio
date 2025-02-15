@@ -9,36 +9,74 @@ export const projects = [
     "description": "Developed and deployed a scalable Node.js REST API with authentication, CI/CD, and GCP infrastructure.",
     "image": "https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8",
     "tags": ["Node.js", "REST API", "Sequelize", "MySQL", "GCP", "Terraform", "CI/CD"],
-    "longDescription": "Designed and implemented a REST API using Node.js and Sequelize ORM with MySQL for database management. The API included user authentication, health check endpoints, and robust security measures. The infrastructure was first built on a local MySQL database and later migrated to GCP CloudSQL with automatic load balancing across multiple geographical locations to handle service outages. CI/CD was automated using GitHub Actions, incorporating Jest for integration testing and Terraform scripts for environment provisioning. Security was enhanced using encryption key rings, and logging was implemented with Winston to GCP Log Explorer. Additionally, email and notification services were integrated for improved user communication.",
-    "challenges": "Ensuring high availability and fault tolerance across different geographical locations while maintaining seamless CI/CD integration.",
-    "solutions": "Implemented automatic load balancing, Terraform for infrastructure automation, and GitHub Actions for continuous deployment. Used encryption key rings for security and Winston for centralized logging.",
+    "modules": [
+      {
+        "heading": "Overview",
+        "contents": [
+          "Designed and implemented a REST API using Node.js and Sequelize ORM with MySQL for database management. The API included user authentication, health check endpoints, and robust security measures.",
+          {
+            "type": "image",
+            "src": "/images/api-architecture.png",  // Replace with actual image if available
+            "alt": "API Architecture Diagram"
+          },
+          "The infrastructure was first built on a local MySQL database and later migrated to GCP CloudSQL with automatic load balancing across multiple geographical locations to handle service outages."
+        ]
+      },
+      {
+        "heading": "Key Features",
+        "contents": [
+          "**Authentication System**",
+          "Secure user authentication with JWT tokens and role-based access control",
+          "**Database Management**",
+          "Sequelize ORM integration with MySQL for efficient data handling",
+          "**Cloud Infrastructure**",
+          "GCP CloudSQL deployment with geographical redundancy",
+          {
+            "type": "images",
+            "items": [
+              { "src": "/images/dashboard.png", "alt": "API Dashboard" },
+              { "src": "/images/metrics.png", "alt": "Performance Metrics" }
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Challenges",
+        "contents": [
+          "Ensuring high availability and fault tolerance across different geographical locations while maintaining seamless CI/CD integration.",
+          "Handling database migrations during zero-downtime deployments",
+          "Implementing proper security measures for sensitive data"
+        ]
+      },
+      {
+        "heading": "Solutions",
+        "contents": [
+          "Implemented automatic load balancing, Terraform for infrastructure automation, and GitHub Actions for continuous deployment.",
+          "Used encryption key rings for security and Winston for centralized logging to GCP Log Explorer.",
+          {
+            "type": "link",
+            "url": "https://cloud.google.com/kms/docs/encryption-key-rings",
+            "text": "Learn about GCP Encryption Key Rings"
+          }
+        ]
+      },
+      {
+        "heading": "CI/CD Pipeline",
+        "contents": [
+          "Automated deployment workflow using GitHub Actions",
+          "Integration testing with Jest before each deployment",
+          "Terraform scripts for consistent environment provisioning",
+          {
+            "type": "image",
+            "src": "/images/cicd-pipeline.png",  // Replace with actual image if available
+            "alt": "CI/CD Pipeline Workflow"
+          }
+        ]
+      }
+    ],
     "link": "https://your-deployed-api.example.com",
     "github": "https://github.com/yourusername/rest-api-gcp"  
-  },
-  {
-    "id": 2,
-    "title": "FairTrader AI",
-    "description": "An AI-powered car marketplace with a conversational assistant.",
-    "image": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
-    "tags": ["React.js", "Node.js", "MongoDB", "LLM", "LangChain"],
-    "longDescription": "FairTrader AI is an intelligent chatbot system designed for a marketplace where users can buy and sell cars while interacting with a conversational assistant named Dave. Dave assists users with navigation, predicts car prices, negotiates deals, and provides context-aware conversations based on user purchase history. The system leverages Llama 3.2 via Ollama and LangChain, along with a vector database for embedding storage and retrieval-augmented generation (RAG).",
-    "challenges": "High RAG latency, dataset inconsistencies, and multi-server integration.",
-    "solutions": "Optimized embedding storage and retrieval, created a Python standardization script, and established robust API endpoints.",
-    "link": "https://youtu.be/LPZE1T6YCU8",
-    "github": "https://github.com/yourusername/fairtrader-ai"
-  },
-  {
-    id: 3,
-    title: "Project 3",
-    description: "A real-time collaboration tool for teams",
-    image: "https://images.unsplash.com/photo-1510759395231-72b17d622279",
-    tags: ["Vue", "WebSocket", "Redis"],
-    longDescription: "A collaborative platform that enables real-time communication and project management for remote teams.",
-    challenges: "Maintaining data consistency across multiple users in real-time",
-    solutions: "Used WebSocket for real-time updates and implemented conflict resolution",
-    link: "https://project3.example.com",
-    github: "https://github.com/yourusername/project3"
-  },
+  }
 ];
 
 export default function Projects() {
