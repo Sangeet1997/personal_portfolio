@@ -9,45 +9,48 @@ export const experiences = [
     title: "Senior Frontend Developer",
     company: "Tech Corp",
     description: "Leading the frontend development team and implementing modern web solutions.",
-    longDescription: "Led a team of 5 developers in building scalable web applications. Implemented modern frontend architectures using React, TypeScript, and GraphQL. Improved application performance by 40% through code optimization and lazy loading strategies.",
-    responsibilities: [
-      "Led frontend architecture decisions and implementation",
-      "Mentored junior developers and conducted code reviews",
-      "Implemented CI/CD pipelines and testing strategies",
-      "Collaborated with design team to create responsive UI components"
-    ],
-    technologies: ["React", "TypeScript", "GraphQL", "Jest", "Cypress"]
-  },
-  {
-    id: 2,
-    date: "2019 - 2021",
-    title: "Frontend Developer",
-    company: "Digital Agency",
-    description: "Developed responsive web applications using React and TypeScript.",
-    longDescription: "Worked on multiple client projects developing responsive and accessible web applications. Specialized in creating interactive data visualizations and complex user interfaces.",
-    responsibilities: [
-      "Built responsive web applications for various clients",
-      "Implemented complex UI components and animations",
-      "Optimized application performance and accessibility",
-      "Collaborated with backend team on API integration"
-    ],
-    technologies: ["React", "JavaScript", "SASS", "D3.js", "REST APIs"]
-  },
-  {
-    id: 3,
-    date: "2017 - 2019",
-    title: "Web Developer",
-    company: "StartUp Inc",
-    description: "Built and maintained various client websites and web applications.",
-    longDescription: "Started as a junior developer and quickly grew to handle full-stack development responsibilities. Worked on both client websites and internal tools.",
-    responsibilities: [
-      "Developed and maintained client websites",
-      "Created internal tools for project management",
-      "Handled database design and optimization",
-      "Implemented responsive designs and UI components"
-    ],
-    technologies: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"]
-  },
+    technologies: ["React", "TypeScript", "GraphQL", "Jest", "Cypress"],
+    modules: [
+      {
+        heading: "Overview",
+        contents: [
+          "Led a team of 5 developers in building scalable web applications. Implemented modern frontend architectures using React, TypeScript, and GraphQL. Improved application performance by 40% through code optimization and lazy loading strategies."
+        ]
+      },
+      {
+        heading: "Key Responsibilities",
+        contents: [
+          "**Architecture Leadership**",
+          "Led frontend architecture decisions and established best practices for the team",
+          "**Mentorship & Code Quality**",
+          "Mentored junior developers and conducted regular code reviews to maintain quality standards",
+          "**DevOps Integration**",
+          "Implemented CI/CD pipelines using GitHub Actions and comprehensive testing strategies",
+          "**UI/UX Collaboration**",
+          "Worked closely with the design team to create a library of responsive UI components",
+          {
+            type: "image",
+            src: "/images/component-library.png",
+            alt: "UI Component Library"
+          }
+        ]
+      },
+      {
+        heading: "Achievements",
+        contents: [
+          "**Performance Optimization**",
+          "Improved application load time by 40% through implementing code splitting, lazy loading, and optimized bundle sizes",
+          "**Team Productivity**",
+          "Increased team velocity by 30% through implementing better development workflows and automated testing",
+          {
+            type: "link",
+            url: "https://techcorp.example.com/case-studies/frontend-optimization",
+            text: "View Performance Case Study"
+          }
+        ]
+      }
+    ]
+  }
 ];
 
 export default function Experience() {
@@ -57,7 +60,7 @@ export default function Experience() {
         <h2 className="text-3xl font-bold mb-8">Work Experience</h2>
         <div className="max-w-2xl">
           {experiences.map((experience) => (
-            <Link key={experience.id} href={`/experience/${experience.id}`}>
+            <Link key={experience.id} href={`/personal_portfolio/experience/${experience.id}`}>
               <a className="block cursor-pointer">
                 <TimelineItem {...experience} />
               </a>
