@@ -3,8 +3,9 @@ import PageTransition from "@/components/PageTransition";
 import { projects } from "./Projects";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { motion } from "framer-motion";
-import { Github, ExternalLink } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Github, ExternalLink, X } from "lucide-react";
+import { useState } from "react";
 
 // Define types for the different content formats
 type TextContent = string;
@@ -49,45 +50,74 @@ type Project = {
 export default function ProjectDetail() {
   const [, params] = useRoute("/personal_portfolio/projects/:id");
   const project = projects.find((p) => p.id === Number(params?.id)) as Project | undefined;
+  const [modalImage, setModalImage] = useState<string | null>(null);
 
   if (!project) {
     return <div>Project not found</div>;
   }
 
+  // Helper function to handle image click
+  const handleImageClick = (src: string) => {
+    setModalImage(src);
+  };
+
+  // Helper function to close modal
+  const closeModal = () => {
+    setModalImage(null);
+  };
+
   // Helper function to render module content based on type
   const renderModuleContent = (content: ModuleContent) => {
     if (typeof content === "string") {
-      // Handle text content (check for formatting)
-      if (content.startsWith("**") && content.endsWith("**")) {
-        return <strong>{content.slice(2, -2)}</strong>;
-      } else if (content.startsWith("*") && content.endsWith("*")) {
-        return <em>{content.slice(1, -1)}</em>;
-      } else if (content.startsWith("[color:") && content.includes("]")) {
-        const colorEnd = content.indexOf("]");
-        const color = content.slice(7, colorEnd);
-        const text = content.slice(colorEnd + 1);
-        return <span style={{ color }}>{text}</span>;
-      } else {
-        return <p className="mb-4">{content}</p>;
-      }
+      // Handle bold, italic, and colored text formatting
+      const formatText = (text: string) => {
+        const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|\[color:[^\]]+\][^\[]+)/g);
+  
+        return parts.map((part, index) => {
+          if (part.startsWith("**") && part.endsWith("**")) {
+            return <strong key={index}>{part.slice(2, -2)}</strong>;
+          } else if (part.startsWith("*") && part.endsWith("*")) {
+            return <em key={index}>{part.slice(1, -1)}</em>;
+          } else if (part.startsWith("[color:") && part.includes("]")) {
+            const colorEnd = part.indexOf("]");
+            const color = part.slice(7, colorEnd);
+            const text = part.slice(colorEnd + 1);
+            return (
+              <span key={index} style={{ color }}>
+                {text}
+              </span>
+            );
+          }
+          return part; // Return plain text
+        });
+      };
+  
+      return <p className="mb-4">{formatText(content)}</p>;
     } else if (content.type === "image") {
       return (
-        <img
-          src={content.src}
-          alt={content.alt || ""}
-          className="rounded-lg my-6"
-        />
+        <div className="my-6 cursor-pointer" onClick={() => handleImageClick(content.src)}>
+          <img 
+            src={content.src} 
+            alt={content.alt || ""} 
+            className="rounded-lg w-full hover:opacity-90 transition-opacity"
+          />
+        </div>
       );
     } else if (content.type === "images") {
       return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
           {content.items.map((img, i) => (
-            <img
-              key={i}
-              src={img.src}
-              alt={img.alt || ""}
-              className="rounded-lg w-full h-auto"
-            />
+            <div 
+              key={i} 
+              className="cursor-pointer"
+              onClick={() => handleImageClick(img.src)}
+            >
+              <img
+                src={img.src}
+                alt={img.alt || ""}
+                className="rounded-lg w-full h-auto hover:opacity-90 transition-opacity"
+              />
+            </div>
           ))}
         </div>
       );
@@ -119,11 +149,14 @@ export default function ProjectDetail() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="aspect-video rounded-lg overflow-hidden mb-8">
+          <div 
+            className="aspect-video rounded-lg overflow-hidden mb-8 cursor-pointer"
+            onClick={() => handleImageClick(project.image)}
+          >
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover hover:opacity-90 transition-opacity filter grayscale"
             />
           </div>
 
@@ -180,6 +213,38 @@ export default function ProjectDetail() {
           </div>
         </motion.div>
       </div>
+      
+      {/* Image Modal */}
+      <AnimatePresence>
+        {modalImage && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center"
+            onClick={closeModal}
+          >
+            <div className="relative max-w-screen-lg max-h-screen w-full h-full p-4 md:p-8 flex items-center justify-center">
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                className="absolute top-4 right-4 bg-black/30 hover:bg-black/50 text-white"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  closeModal();
+                }}
+              >
+                <X className="w-6 h-6" />
+              </Button>
+              <img 
+                src={modalImage} 
+                alt="Enlarged view" 
+                className="max-w-full max-h-full object-contain"
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </PageTransition>
   );
 }

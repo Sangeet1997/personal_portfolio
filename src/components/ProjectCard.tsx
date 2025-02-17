@@ -20,7 +20,7 @@ export default function ProjectCard({ title, description, image, tags }: Project
           <img
             src={image}
             alt={title}
-            className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+            className="object-cover w-full h-full transition-transform duration-300 hover:scale-105 filter grayscale"
           />
         </div>
         <CardContent className="p-6">
