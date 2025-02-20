@@ -106,31 +106,31 @@ export const experiences = [
         {
         "heading": "Overview",
         "contents": [
-        "Led the development of an innovative curriculum focused on AI-powered personalized learning strategies. Integrated cutting-edge AI tools and adaptive learning technologies to enhance student engagement and academic performance. Implemented data-driven approaches to continuously optimize course content and delivery methods59."
+        "Led the development of an innovative curriculum focused on AI-powered personalized learning strategies. Integrated cutting-edge AI tools and adaptive learning technologies to enhance student engagement and academic performance. Implemented data-driven approaches to continuously optimize course content and delivery methods."
         ]
         },
         {
         "heading": "Key Responsibilities",
         "contents": [
         "Curriculum Development",
-        "Designed and implemented a dynamic curriculum incorporating AI-driven personalized learning pathways and adaptive assessment tools710",
+        "Designed and implemented a dynamic curriculum incorporating AI-driven personalized learning pathways and adaptive assessment tools",
         "Data Analysis & Optimization",
-        "Analyzed student engagement metrics and learning patterns to refine course content and improve learning outcomes912",
+        "Analyzed student engagement metrics and learning patterns to refine course content and improve learning outcomes",
         "Content Creation",
-        "Developed multimedia educational resources including instructional videos and technical guides for AI tool implementation6",
+        "Developed multimedia educational resources including instructional videos and technical guides for AI tool implementation",
         "Learning Technology Integration",
-        "Implemented various AI-powered learning platforms to create interactive and personalized learning experiences610"
+        "Implemented various AI-powered learning platforms to create interactive and personalized learning experiences"
         ]
         },
         {
         "heading": "Achievements",
         "contents": [
         "Educational Innovation",
-        "Successfully integrated AI-driven personalized learning solutions that adapted to individual student needs and learning styles912",
+        "Successfully integrated AI-driven personalized learning solutions that adapted to individual student needs and learning styles",
         "Student Engagement",
-        "Created comprehensive learning materials that enhanced student understanding of AI applications in academic settings57",
+        "Created comprehensive learning materials that enhanced student understanding of AI applications in academic settings",
         "Technology Implementation",
-        "Established effective systems for tracking and analyzing student progress through AI-powered assessment tools1012"
+        "Established effective systems for tracking and analyzing student progress through AI-powered assessment tools"
         ]
         }
         ]
