@@ -15,7 +15,6 @@ const skills = [
 ];
 
 const education = [
-  
   {
     school: "Northeastern University",
     degree: "Master of Science in Software Engineering",
@@ -50,6 +49,8 @@ export default function Home() {
   const textRef = useRef(null);
   const sectionsRef = useRef<HTMLDivElement | null>(null);
   const [expanded, setExpanded] = useState<number | null>(null);
+  const [titleIndex, setTitleIndex] = useState(0);
+  const titles = ["Fullstack Developer", "AI Engineer", "Cloud Developer"];
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -83,6 +84,12 @@ export default function Home() {
         });
       });
     }
+
+    const intervalId = setInterval(() => {
+      setTitleIndex((prevIndex) => (prevIndex + 1) % titles.length);
+    }, 2500);
+
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
@@ -93,7 +100,16 @@ export default function Home() {
             <h1 ref={headingRef} className="text-6xl font-bold mb-6">
               Hi, I'm <span className="text-primary">Sangeet Saha</span>
               <br />
-              Fullstack Developer
+              <motion.div
+                key={titles[titleIndex]}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 1, ease: "easeInOut" }}
+                className="text-6xl font-bold"
+              >
+                {titles[titleIndex]}
+              </motion.div>
             </h1>
             <p ref={textRef} className="text-xl text-muted-foreground">
               I craft intelligent and scalable software solutions, blending cutting-edge AI with robust engineering. Let's build the future, one innovation at a time.

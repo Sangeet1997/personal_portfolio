@@ -5,6 +5,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ReactMarkdown from "react-markdown";
+
 
 // Define types for the different content formats
 type TextContent = string;
@@ -133,9 +135,17 @@ export default function HobbyDetail() {
                     {module.heading && (
                       <h2 className="text-2xl font-semibold mb-4">{module.heading}</h2>
                     )}
-                    {module.contents.map((content, i) => (
-                      <div key={i}>{renderModuleContent(content)}</div>
-                    ))}
+                    {module.contents.map((content, i) => {
+                      // Check if content is a string before passing to ReactMarkdown
+                      if (typeof content === "string") {
+                        return (
+                          <div key={i}>
+                            <ReactMarkdown>{content}</ReactMarkdown>
+                          </div>
+                        );
+                      }
+                      return null; // Return null for non-string content
+                    })}
                   </div>
                 ))}
               </div>
