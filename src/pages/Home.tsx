@@ -98,7 +98,7 @@ export default function Home() {
         <div className="h-screen flex items-center">
           <div className="max-w-3xl">
             <h1 ref={headingRef} className="text-6xl font-bold mb-6">
-              Hi, I'm <span className="text-primary">Sangeet Saha</span>
+              Hi, I'm <span className="text-muted-foreground">Sangeet Saha</span>
               <br />
               <motion.div
                 key={titles[titleIndex]}

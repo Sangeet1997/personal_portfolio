@@ -120,7 +120,7 @@ export default function Terminal() {
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center gap-2 mb-4">
           <TerminalIcon className="w-5 h-5" />
-          <h2 className="text-xl font-semibold">Interactive Terminal</h2>
+          <h2 className="text-xl font-semibold">Interactive Terminal </h2><span className='text-s text-muted-foreground'>*powered by gemma2-9b-it</span>
         </div>
         
         <div className="mb-4">

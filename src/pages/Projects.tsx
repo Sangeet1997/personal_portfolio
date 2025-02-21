@@ -10,6 +10,7 @@ import cotImage1 from '@/assets/cot_image_1.png';
 import cotImage2 from '@/assets/cot_image_2.png';
 import cotImage3 from '@/assets/cot_image_3.png';
 import gcpImage1 from '@/assets/gcp_image.png';
+import agileCover from '@/assets/agile_cover.jpg';
 
 
 
@@ -484,6 +485,56 @@ export const projects = [
     "link": "https://sangeet1997.github.io/maze_visualizaiton/",
     "github": "https://github.com/Sangeet1997/maze_visualizaiton"
   },
+  {
+    "id": 7,
+    "title": "Agile Simulation Exercise for App Design",
+    "description": "Participated in an Agile simulation exercise to design an app using Figma, demonstrating teamwork, adaptability, and Agile facilitation skills.",
+    "image": agileCover,
+    "tags": ["Agile", "Scrum", "Figma", "Trello", "Team Collaboration", "Sprint Planning"],
+    "modules": [
+      {
+        "heading": "Overview",
+        "contents": [
+          "Engaged in a three-hour Agile simulation exercise as part of an Agile Methodologies course. The team consisted of five members: three developers, one Scrum Master, and one Project Manager. The objective was to deliver a functional app design using Figma or a similar platform. The simulation was divided into three sprint sessions, with requirements gathered by the Project Manager and relayed to the developers through the Scrum Master."
+        ]
+      },
+      {
+        "heading": "My Role and Contributions",
+        "contents": [
+          "Initially participated as one of the developers but later assumed additional responsibilities due to gaps in Scrum Master's involvement.",
+          "Set up and maintained a Trello board for task tracking, leveraging prior experience to ensure transparency and efficiency in workflow management.",
+          "Facilitated sprint planning, task allocation, and progress tracking across all three sessions."
+        ]
+      },
+      {
+        "heading": "Project Highlights:",
+        "contents": [
+          "**1. Agile Workflow Implementation**",
+          "Structured the team's workflow using Trello, ensuring clear visibility of tasks and deadlines.",
+          "**2. Adaptability**",
+          "Stepped into a facilitation role to address gaps in team coordination, demonstrating initiative and leadership.",
+          "**3. Collaboration**",
+          "Worked closely with team members to address challenges and deliver a high-quality app design within the given timeframe."
+        ]
+      },
+      {
+        "heading": "Key Achievements:",
+        "contents": [
+          "Successfully delivered the app design within the three-hour simulation.",
+          "Earned full marks for the exercise due to effective collaboration and adherence to Agile principles.",
+          "Demonstrated strong problem-solving skills by addressing workflow inefficiencies."
+        ]
+      },
+      {
+        "heading": "",
+        "contents": [
+          "This project showcased my ability to adapt to dynamic team environments, take initiative, and apply Agile methodologies effectively in a time-constrained setting."
+        ]
+      }
+    ],
+    "link": "",
+    "github": ""
+    }
 
 ];
 
