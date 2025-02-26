@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import Terminal from "@/components/Terminal";
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,6 +52,7 @@ export default function Home() {
   const sectionsRef = useRef<HTMLDivElement | null>(null);
   const [expanded, setExpanded] = useState<number | null>(null);
   const [titleIndex, setTitleIndex] = useState(0);
+  const [isButtonHovered, setIsButtonHovered] = useState(false);
   const titles = ["Fullstack Developer", "AI Engineer", "Cloud Developer"];
 
   useEffect(() => {
@@ -92,9 +95,22 @@ export default function Home() {
     return () => clearInterval(intervalId);
   }, []);
 
+  const handleDownloadResume = () => {
+    // Replace with the actual path to your resume PDF file
+    const resumeUrl = "/resume.pdf";
+    
+    // Create an anchor element and trigger the download
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "Sangeet_Saha_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <PageTransition>
-      <div className="min-h-[calc(100vh-4rem)]">
+      <div className="min-h-[calc(100vh-4rem)] relative">
         <div className="h-screen flex items-center">
           <div className="max-w-3xl">
             <h1 ref={headingRef} className="text-6xl font-bold mb-6">
@@ -162,6 +178,40 @@ export default function Home() {
             </div>
           </section>
         </div>
+
+        <motion.div
+          className="fixed bottom-8 left-8 z-10"
+          onMouseEnter={() => setIsButtonHovered(true)}
+          onMouseLeave={() => setIsButtonHovered(false)}
+          onClick={handleDownloadResume}
+        >
+          <motion.div
+            className="flex items-center bg-primary rounded-full overflow-hidden"
+            animate={{
+              width: isButtonHovered ? 'auto' : '56px',
+              height: isButtonHovered ? '56px' : '56px',
+            }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            whileHover={{ boxShadow: '0 8px 16px rgba(0, 0, 0, 0.3)' }}
+          >
+            <Button  
+              className="h-14 w-14 rounded-full flex items-center justify-center p-5 bg-primary hover:bg-primary focus:outline-none border-none"
+            >
+              <Download 
+                className="h-6 w-6 text-white" 
+                strokeWidth={2}
+              />
+            </Button>
+            <motion.span
+              className="text-white font-medium pr-4 whitespace-nowrap"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: isButtonHovered ? 1 : 0 }}
+              transition={{ duration: 0.2 }}
+            >
+              Download Resume
+            </motion.span>
+          </motion.div>
+        </motion.div>
       </div>
     </PageTransition>
   );
