@@ -8,6 +8,7 @@ import { Card } from "@/components/ui/card";
 import Terminal from "@/components/Terminal";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
+import resume from '@/assets/Sangeet_Saha_Resume_02.pdf';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -96,13 +97,9 @@ export default function Home() {
   }, []);
 
   const handleDownloadResume = () => {
-    // Replace with the actual path to your resume PDF file
-    const resumeUrl = "/resume.pdf";
-    
-    // Create an anchor element and trigger the download
     const link = document.createElement("a");
-    link.href = resumeUrl;
-    link.download = "Sangeet_Saha_Resume.pdf";
+    link.href = resume; // The imported file acts as a URL
+    link.setAttribute("download", "Sangeet_Saha_Resume_02.pdf"); // Ensures download
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
