@@ -1,4 +1,5 @@
-import { Switch, Route, useLocation } from "wouter";
+import { Router, Route, Switch } from "wouter";
+import { useHashLocation } from "wouter/hash";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -15,24 +16,25 @@ import Timeline from "@/pages/Timeline";
 import NotFound from "@/pages/not-found";
 import { useEffect } from "react";
 
-function Router() {
-  const location = useLocation();
-
+function RouterComponent() {
+  // Use the hash location hook
+  const [location] = useHashLocation();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location]);
-
+  
   return (
     <Switch>
-      <Route path="/personal_portfolio" component={Home} />
-      <Route path="/personal_portfolio/projects" component={Projects} />
-      <Route path="/personal_portfolio/projects/:id" component={ProjectDetail} />
-      <Route path="/personal_portfolio/timeline" component={Timeline} />
-      <Route path="/personal_portfolio/experience" component={Experience} />
-      <Route path="/personal_portfolio/experience/:id" component={ExperienceDetail} />
-      <Route path="/personal_portfolio/contact" component={Contact} />
-      <Route path="/personal_portfolio/hobbies" component={Hobbies} />
-      <Route path="/personal_portfolio/hobbies/:id" component={HobbyDetail} />
+      <Route path="/" component={Home} />
+      <Route path="/projects" component={Projects} />
+      <Route path="/projects/:id" component={ProjectDetail} />
+      <Route path="/timeline" component={Timeline} />
+      <Route path="/experience" component={Experience} />
+      <Route path="/experience/:id" component={ExperienceDetail} />
+      <Route path="/contact" component={Contact} />
+      <Route path="/hobbies" component={Hobbies} />
+      <Route path="/hobbies/:id" component={HobbyDetail} />
       <Route component={NotFound} />
     </Switch>
   );
@@ -41,12 +43,14 @@ function Router() {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="min-h-screen bg-background">
-        <Navigation />
-        <main className="container mx-auto px-4 pt-16">
-          <Router />
-        </main>
-      </div>
+      <Router hook={useHashLocation}>
+        <div className="min-h-screen bg-background">
+          <Navigation />
+          <main className="container mx-auto px-4 pt-16">
+            <RouterComponent />
+          </main>
+        </div>
+      </Router>
       <Toaster />
     </QueryClientProvider>
   );
