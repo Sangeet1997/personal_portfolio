@@ -144,7 +144,7 @@ export default function Experience() {
         <h2 className="text-3xl font-bold mb-8">Work Experience</h2>
         <div className="max-w-2xl">
           {experiences.map((experience) => (
-            <Link key={experience.id} href={`/personal_portfolio/experience/${experience.id}`}>
+            <Link key={experience.id} href={`/experience/${experience.id}`}>
               <a className="block cursor-pointer">
                 <TimelineItem {...experience} />
               </a>

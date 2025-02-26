@@ -186,7 +186,7 @@ export default function Hobbies() {
         <h2 className="text-3xl font-bold mb-8">My Hobbies</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {hobbies.map((hobby, index) => (
-            <Link key={hobby.id} href={`/personal_portfolio/hobbies/${hobby.id}`}>
+            <Link key={hobby.id} href={`/hobbies/${hobby.id}`}>
               <a>
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}

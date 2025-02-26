@@ -48,7 +48,7 @@ type Project = {
 };
 
 export default function ProjectDetail() {
-  const [, params] = useRoute("/personal_portfolio/projects/:id");
+  const [, params] = useRoute("/projects/:id");
   const project = projects.find((p) => p.id === Number(params?.id)) as Project | undefined;
   const [modalImage, setModalImage] = useState<string | null>(null);
 

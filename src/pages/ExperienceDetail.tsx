@@ -47,7 +47,7 @@ type Experience = {
 };
 
 export default function ExperienceDetail() {
-  const [, params] = useRoute("/personal_portfolio/experience/:id");
+  const [, params] = useRoute("/experience/:id");
   const experience = experiences.find((e) => e.id === Number(params?.id)) as Experience | undefined;
 
   if (!experience) {

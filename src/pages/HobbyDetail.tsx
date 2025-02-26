@@ -47,7 +47,7 @@ type Hobby = {
 };
 
 export default function HobbyDetail() {
-  const [, params] = useRoute("/personal_portfolio/hobbies/:id");
+  const [, params] = useRoute("/hobbies/:id");
   const hobby = hobbies.find((h) => h.id === Number(params?.id)) as Hobby | undefined;
 
   if (!hobby) {
