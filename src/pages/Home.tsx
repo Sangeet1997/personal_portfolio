@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 import Terminal from "@/components/Terminal";
 import { Button } from "@/components/ui/button";
 import { Download } from "lucide-react";
-import resume from '@/assets/Sangeet_Saha_Resume_02.pdf';
+import resume from '@/assets/Sangeet_Saha_resume_base.pdf';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -99,7 +99,7 @@ export default function Home() {
   const handleDownloadResume = () => {
     const link = document.createElement("a");
     link.href = resume; // The imported file acts as a URL
-    link.setAttribute("download", "Sangeet_Saha_Resume_02.pdf"); // Ensures download
+    link.setAttribute("download", "Sangeet_Saha_resume_base.pdf"); // Ensures download
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
